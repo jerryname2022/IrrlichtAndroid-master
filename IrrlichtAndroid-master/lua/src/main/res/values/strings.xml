@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Lua</string>
+  <string name="hello">Hello World, Main!</string>
+</resources>

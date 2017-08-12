@@ -1,0 +1,1 @@
+include ':app', ':Urho3d', ':lua'

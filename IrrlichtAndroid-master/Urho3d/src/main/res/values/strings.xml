@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Urho3D</string>
+  <string name="script_list">Choose a script to play</string>
+</resources>
