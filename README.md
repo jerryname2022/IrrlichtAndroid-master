@@ -11,26 +11,39 @@ cp -r /home/xiaoming/Downloads/Urho3D-1.6/build/include/ ./include/
 例如编译的是 AngelScript 模块，cmake会生成一下目录和文件。
 <p></p>
 CMakeFiles
+<p></p>
          ./AngelScript.dir
+	 <p></p>
                          ./source                        该模块编译源文件时生成的中间文件
+			 <p></p>
                          ./ASM.includecache
+			 <p></p>
                          ./build.make                    最主要的编译文件，阅读该文件可详细知道，编译当前模块的编译过程，依赖等信息。
+			 <p></p>
                          ./cmake_clean.cmake
+			 <p></p>
                          ./cmake_clean_target.cmake
+			 <p></p>
                          ./CXX.includecache
+			 <p></p>
                          ./depend.internal
+			 <p></p>
                          ./DependInfo.cmake
                          ./flags.make                    这是传给编译器的附加 参数 如-fno-strict-aliasing
+			 <p></p>
                          ./link.txt                      包含链接命令的文件
+			 <p></p>
                          ./progress.make
+			 <p></p>
          ./CMakeDirectoryInformation.cmake
+	 <p></p>
          ./progress.marks
+	 <p></p>
 cmake_install.cmake
 libAngelScript.a                                         输出的库文件
+<p></p>
 Makefile                                                 最后生成的Makefile文件
-
-
-demo  01
+<p></p>
 
 #include "../../.././include/Urho3D/Core/CoreEvents.h"
 #include "../../.././include/Urho3D/Engine/Engine.h"
