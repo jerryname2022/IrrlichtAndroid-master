@@ -1,11 +1,15 @@
 Urho3D 阅读文档
+<p></p>
 先在linux下编译出 libUrho3d.a 库。 编译目录在源码新建的 build 目录下
-  
+<p></p>  
 拷贝(带软链接)
+<p></p>
 cp -r /home/xiaoming/Downloads/Urho3D-1.6/build/include/ ./include/
-
+<p></p>
 阅读cmake编译生成的文件，移到android studio工程下。
+<p></p>
 例如编译的是 AngelScript 模块，cmake会生成一下目录和文件。
+<p></p>
 CMakeFiles
          ./AngelScript.dir
                          ./source                        该模块编译源文件时生成的中间文件
