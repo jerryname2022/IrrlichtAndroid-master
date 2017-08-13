@@ -10,39 +10,39 @@ cp -r /home/xiaoming/Downloads/Urho3D-1.6/build/include/ ./include/
 <p></p>
 例如编译的是 AngelScript 模块，cmake会生成一下目录和文件。
 <p></p>
-CMakeFiles
+> CMakeFiles
 <p></p>
-         ./AngelScript.dir
+>>         ./AngelScript.dir
 	 <p></p>
-                         ./source                        该模块编译源文件时生成的中间文件
+>>>                         ./source                        该模块编译源文件时生成的中间文件
 			 <p></p>
-                         ./ASM.includecache
+>>>                         ./ASM.includecache
 			 <p></p>
-                         ./build.make                    最主要的编译文件，阅读该文件可详细知道，编译当前模块的编译过程，依赖等信息。
+>>>                         ./build.make                    最主要的编译文件，阅读该文件可详细知道，编译当前模块的编译过程，依赖等信息。
 			 <p></p>
-                         ./cmake_clean.cmake
+>>>                         ./cmake_clean.cmake
 			 <p></p>
-                         ./cmake_clean_target.cmake
+>>>                         ./cmake_clean_target.cmake
 			 <p></p>
-                         ./CXX.includecache
+>>>                        ./CXX.includecache
 			 <p></p>
-                         ./depend.internal
+>>>                         ./depend.internal
 			 <p></p>
-                         ./DependInfo.cmake
-                         ./flags.make                    这是传给编译器的附加 参数 如-fno-strict-aliasing
+>>>                         ./DependInfo.cmake
+>>>                         ./flags.make                    这是传给编译器的附加 参数 如-fno-strict-aliasing
+>>>			 <p></p>
+>>>                         ./link.txt                      包含链接命令的文件
 			 <p></p>
-                         ./link.txt                      包含链接命令的文件
+>>>                         ./progress.make
 			 <p></p>
-                         ./progress.make
-			 <p></p>
-         ./CMakeDirectoryInformation.cmake
+>>         ./CMakeDirectoryInformation.cmake
 	 <p></p>
-         ./progress.marks
+>>         ./progress.marks
 	 <p></p>
-cmake_install.cmake
-libAngelScript.a                                         输出的库文件
+>cmake_install.cmake
+>libAngelScript.a                                         输出的库文件
 <p></p>
-Makefile                                                 最后生成的Makefile文件
+>Makefile                                                 最后生成的Makefile文件
 <p></p>
 
 #include "../../.././include/Urho3D/Core/CoreEvents.h"
