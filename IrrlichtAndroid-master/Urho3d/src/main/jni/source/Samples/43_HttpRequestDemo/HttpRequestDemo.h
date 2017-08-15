@@ -24,44 +24,46 @@
 
 #include "../Sample.h"
 
-namespace Urho3D
-{
+namespace Urho3D {
     class HttpRequest;
+
     class Text;
 }
 
 /// Http request example.
 /// This example demonstrates:
 ///     - How to use Http request API
-class HttpRequestDemo : public Sample
-{
-    URHO3D_OBJECT(HttpRequestDemo, Sample);
+class HttpRequestDemo : public Sample {
+URHO3D_OBJECT(HttpRequestDemo, Sample);
 
 public:
     /// Construct.
-    HttpRequestDemo(Context* context);
+    HttpRequestDemo(Context *context);
 
     /// Setup after engine initialization and before running the main loop.
     virtual void Start();
 
 protected:
     /// Return XML patch instructions for screen joystick layout for a specific sample app, if any.
-    virtual String GetScreenJoystickPatchString() const { return
-        "<patch>"
-        "    <add sel=\"/element/element[./attribute[@name='Name' and @value='Hat0']]\">"
-        "        <attribute name=\"Is Visible\" value=\"false\" />"
-        "    </add>"
-        "</patch>";
+    virtual String GetScreenJoystickPatchString() const {
+        return
+                "<patch>"
+                        "    <add sel=\"/element/element[./attribute[@name='Name' and @value='Hat0']]\">"
+                        "        <attribute name=\"Is Visible\" value=\"false\" />"
+                        "    </add>"
+                        "</patch>";
     }
 
 private:
     /// Create the user interface.
     void CreateUI();
+
     /// Subscribe to application-wide logic update events.
     void SubscribeToEvents();
+
     /// Handle the logic update event.
-    void HandleUpdate(StringHash eventType, VariantMap& eventData);
-    
+    void HandleUpdate(StringHash eventType, VariantMap &eventData);
+
     String message_;
     SharedPtr<Text> text_;
     SharedPtr<HttpRequest> httpRequest_;

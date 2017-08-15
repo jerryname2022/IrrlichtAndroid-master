@@ -24,10 +24,9 @@
 
 #include "../Sample.h"
 
-namespace Urho3D
-{
+namespace Urho3D {
 
-class Window;
+    class Window;
 
 }
 
@@ -40,44 +39,51 @@ class Window;
 ///     - Dragging UIElements
 ///     - Displaying tooltips
 ///     - Accessing available Events data (eventData)
-class HelloGUI : public Sample
-{
-    URHO3D_OBJECT(HelloGUI, Sample);
+class HelloGUI : public Sample {
+URHO3D_OBJECT(HelloGUI, Sample);
 
 public:
     /// Construct.
-    HelloGUI(Context* context);
+    HelloGUI(Context *context);
 
     /// Setup after engine initialization and before running the main loop.
     virtual void Start();
 
 protected:
     /// Return XML patch instructions for screen joystick layout for a specific sample app, if any.
-    virtual String GetScreenJoystickPatchString() const { return
-        "<patch>"
-        "    <add sel=\"/element/element[./attribute[@name='Name' and @value='Hat0']]\">"
-        "        <attribute name=\"Is Visible\" value=\"false\" />"
-        "    </add>"
-        "</patch>";
+    virtual String GetScreenJoystickPatchString() const {
+        return
+                "<patch>"
+                        "    <add sel=\"/element/element[./attribute[@name='Name' and @value='Hat0']]\">"
+                        "        <attribute name=\"Is Visible\" value=\"false\" />"
+                        "    </add>"
+                        "</patch>";
     }
 
 private:
     /// Create and initialize a Window control.
     void InitWindow();
+
     /// Create and add various common controls for demonstration purposes.
     void InitControls();
+
     /// Create a draggable fish button.
     void CreateDraggableFish();
+
     /// Handle drag begin for the fish button.
-    void HandleDragBegin(StringHash eventType, VariantMap& eventData);
+    void HandleDragBegin(StringHash eventType, VariantMap &eventData);
+
     /// Handle drag move for the fish button.
-    void HandleDragMove(StringHash eventType, VariantMap& eventData);
+    void HandleDragMove(StringHash eventType, VariantMap &eventData);
+
     /// Handle drag end for the fish button.
-    void HandleDragEnd(StringHash eventType, VariantMap& eventData);
+    void HandleDragEnd(StringHash eventType, VariantMap &eventData);
+
     /// Handle any UI control being clicked.
-    void HandleControlClicked(StringHash eventType, VariantMap& eventData);
+    void HandleControlClicked(StringHash eventType, VariantMap &eventData);
+
     /// Handle close button pressed and released.
-    void HandleClosePressed(StringHash eventType, VariantMap& eventData);
+    void HandleClosePressed(StringHash eventType, VariantMap &eventData);
 
     /// The Window.
     SharedPtr<Window> window_;

@@ -13,6 +13,7 @@
 /* Include the SDL main definition header */ // Urho3D - use SDK include dir
 //#include <SDL/SDL_main.h>
 #include "../../include/Urho3D/ThirdParty/SDL/SDL_main.h"
+
 /*******************************************************************************
                  Functions called by JNI
 *******************************************************************************/
@@ -44,10 +45,7 @@ Java_org_libsdl_app_SDLActivity_nativeInit(JNIEnv
     char *argv[len + 1];
     argc = 0;
 // Urho3D: avoid hard-coding the "app_process" as the first argument
-    for (
-            i = 0;
-            i < len;
-            ++i) {
+    for (i = 0; i < len; ++i) {
         const char *utf;
         char *arg = NULL;
         jstring string = (*env)->GetObjectArrayElement(env, array, i);
@@ -55,30 +53,25 @@ Java_org_libsdl_app_SDLActivity_nativeInit(JNIEnv
             utf = (*env)->GetStringUTFChars(env, string, 0);
             if (utf) {
                 arg = SDL_strdup(utf);
-                (*env)->
-                        ReleaseStringUTFChars(env, string, utf
-                );
+                (*env)->ReleaseStringUTFChars(env, string, utf);
             }
-            (*env)->
-                    DeleteLocalRef(env, string
-            );
+            (*env)->DeleteLocalRef(env, string);
         }
         if (!arg) {
             arg = SDL_strdup("");
         }
-        argv[argc++] =
-                arg;
+        argv[argc++] = arg;
     }
     argv[argc] = NULL;
 
 
 /* Run the application. */
 
-    status = SDL_main(argc, argv);
+    status = SDL_main(argc, argv);//see application->Run()
 
 /* Release the arguments. */
 
-    for (i = 0;i < argc;++i) {
+    for (i = 0; i < argc; ++i) {
         SDL_free(argv[i]);
     }
 

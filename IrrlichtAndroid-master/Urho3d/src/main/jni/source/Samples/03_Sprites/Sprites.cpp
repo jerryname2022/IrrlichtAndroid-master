@@ -38,13 +38,11 @@ static const StringHash VAR_VELOCITY("Velocity");
 
 URHO3D_DEFINE_APPLICATION_MAIN(Sprites)
 
-Sprites::Sprites(Context* context) :
-    Sample(context)
-{
+Sprites::Sprites(Context *context) :
+        Sample(context) {
 }
 
-void Sprites::Start()
-{
+void Sprites::Start() {
     // Execute base class startup
     Sample::Start();
 
@@ -58,21 +56,19 @@ void Sprites::Start()
     Sample::InitMouseMode(MM_FREE);
 }
 
-void Sprites::CreateSprites()
-{
-    ResourceCache* cache = GetSubsystem<ResourceCache>();
-    Graphics* graphics = GetSubsystem<Graphics>();
-    UI* ui = GetSubsystem<UI>();
+void Sprites::CreateSprites() {
+    ResourceCache *cache = GetSubsystem<ResourceCache>();
+    Graphics *graphics = GetSubsystem<Graphics>();
+    UI *ui = GetSubsystem<UI>();
 
     // Get rendering window size as floats
-    float width = (float)graphics->GetWidth();
-    float height = (float)graphics->GetHeight();
+    float width = (float) graphics->GetWidth();
+    float height = (float) graphics->GetHeight();
 
     // Get the Urho3D fish texture
-    Texture2D* decalTex = cache->GetResource<Texture2D>("Textures/UrhoDecal.dds");
+    Texture2D *decalTex = cache->GetResource<Texture2D>("Textures/UrhoDecal.dds");
 
-    for (unsigned i = 0; i < NUM_SPRITES; ++i)
-    {
+    for (unsigned i = 0; i < NUM_SPRITES; ++i) {
         // Create a new sprite, set it to use the texture
         SharedPtr<Sprite> sprite(new Sprite(context_));
         sprite->SetTexture(decalTex);
@@ -103,23 +99,22 @@ void Sprites::CreateSprites()
     }
 }
 
-void Sprites::MoveSprites(float timeStep)
-{
-    Graphics* graphics = GetSubsystem<Graphics>();
-    float width = (float)graphics->GetWidth();
-    float height = (float)graphics->GetHeight();
+void Sprites::MoveSprites(float timeStep) {
+    Graphics *graphics = GetSubsystem<Graphics>();
+    float width = (float) graphics->GetWidth();
+    float height = (float) graphics->GetHeight();
 
     // Go through all sprites
-    for (unsigned i = 0; i < sprites_.Size(); ++i)
-    {
-        Sprite* sprite = sprites_[i];
+    for (unsigned i = 0; i < sprites_.Size(); ++i) {
+        Sprite *sprite = sprites_[i];
 
         // Rotate
         float newRot = sprite->GetRotation() + timeStep * 30.0f;
         sprite->SetRotation(newRot);
 
         // Move, wrap around rendering window edges
-        Vector2 newPos = sprite->GetPosition() + sprite->GetVar(VAR_VELOCITY).GetVector2() * timeStep;
+        Vector2 newPos =
+                sprite->GetPosition() + sprite->GetVar(VAR_VELOCITY).GetVector2() * timeStep;
         if (newPos.x_ < 0.0f)
             newPos.x_ += width;
         if (newPos.x_ >= width)
@@ -132,14 +127,12 @@ void Sprites::MoveSprites(float timeStep)
     }
 }
 
-void Sprites::SubscribeToEvents()
-{
+void Sprites::SubscribeToEvents() {
     // Subscribe HandleUpdate() function for processing update events
     SubscribeToEvent(E_UPDATE, URHO3D_HANDLER(Sprites, HandleUpdate));
 }
 
-void Sprites::HandleUpdate(StringHash eventType, VariantMap& eventData)
-{
+void Sprites::HandleUpdate(StringHash eventType, VariantMap &eventData) {
     using namespace Update;
 
     // Take the frame time step, which is stored as a float
