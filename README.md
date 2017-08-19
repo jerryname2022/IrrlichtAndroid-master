@@ -2,6 +2,18 @@ Urho3D 阅读文档
 <p></p>
 先在linux下编译出 libUrho3d.a 库。 编译目录在源码新建的 build 目录下
 <p></p>  
+./cmake_android.sh ./build
+<p></p>  
+./cmake_android.sh ./build -DANDROID_ABI="x86_64"
+<p></p>  
+./cmake_android.sh ./build -DANDROID_ABI="x86"
+<p></p>  
+cd build
+<p></p>  
+cmake ..
+<p></p>  
+make -j4
+<p></p>  
 拷贝(带软链接)
 <p></p>
 cp -r /home/xiaoming/Downloads/Urho3D-1.6/build/include/ ./include/
